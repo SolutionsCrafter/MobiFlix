@@ -47,6 +47,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.ui.text.android)
     implementation(libs.androidx.tools.core)
+    implementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.contentpager)
 
     // Testing dependencies
     testImplementation(libs.junit)
@@ -79,4 +81,13 @@ dependencies {
     implementation("com.android.volley:volley:1.2.1")
 
     implementation ("com.google.code.gson:gson:2.10.1")
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    implementation("androidx.webkit:webkit:1.8.0")
+
+    implementation ("androidx.browser:browser:1.5.0")
+
+
 }

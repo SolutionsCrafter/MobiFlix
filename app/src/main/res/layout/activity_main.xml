@@ -17,9 +17,10 @@
         android:layout_margin="16dp"
         android:background="@drawable/edittext_background"
         android:drawableStart="@drawable/search"
+        android:imeOptions="actionSearch"
         android:drawablePadding="8dp"
         android:ems="10"
-        android:hint="Search movies..."
+        android:hint="@string/search_movies"
         android:inputType="text"
         android:padding="12dp"
         android:textColorHint="@color/white"
@@ -38,6 +39,7 @@
         app:layout_constraintStart_toStartOf="@+id/searchBar"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/microphone" />
+
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -69,7 +71,9 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent" >
+
+                </com.denzcoskun.imageslider.ImageSlider>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -81,7 +85,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="12dp"
-                android:text="Category"
+                android:text="@string/category"
                 android:textColor="@color/yellow"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -122,7 +126,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="12dp"
-                android:text="All Time Best"
+                android:text="@string/all_time_best"
                 android:textColor="@color/yellow"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -162,7 +166,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="12dp"
-                android:text="Top Rated"
+                android:text="@string/top_rated"
                 android:textColor="@color/yellow"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -219,7 +223,32 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/ImgExplorer"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="0.25"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imgHome"
+                        android:layout_width="28dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/home"
+                        app:tint="@color/yellow" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home"
+                        android:textAlignment="center"
+                        android:textColor="@color/yellow" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Linearl"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
@@ -228,7 +257,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView3"
+                        android:id="@+id/imgExplo"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_gravity="center"
@@ -239,7 +268,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Explorer"
+                        android:text="@string/explorer"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
 
@@ -253,7 +282,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView4"
+                        android:id="@+id/imgFav"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_gravity="center"
@@ -264,7 +293,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Favourite"
+                        android:text="@string/favourite"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
 
@@ -278,32 +307,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:src="@drawable/btn_3"
-                        app:tint="@color/white" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Reviews"
-                        android:textAlignment="center"
-                        android:textColor="@color/white" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="0.25"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imageView6"
+                        android:id="@+id/imgProfile"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_gravity="center"
@@ -314,7 +318,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Profile"
+                        android:text="@string/profile"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
 
