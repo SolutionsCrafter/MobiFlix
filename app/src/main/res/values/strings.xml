@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">Movie App</string>
     <string name="you_can_browse_movies_and_shows_by_genre_nsearch_for_specific_title_or_checkout_our_nrecommendation_for_you">you can browse movies and shows by genre,\nsearch for specific title or checkout our\nrecommendation for you</string>
+    <string name="search_movies">Search movies...</string>
+    <string name="category">Category</string>
+    <string name="all_time_best">All Time Best</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="explorer">Explorer</string>
+    <string name="favourite">Favourite</string>
+    <string name="reviews">Reviews</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
 </resources>

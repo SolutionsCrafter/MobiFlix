@@ -1,12 +1,9 @@
 package com.example.mobiflix
 
-import android.app.DownloadManager
 import android.content.Intent
-import android.graphics.Rect
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.util.Log
-import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
@@ -15,12 +12,9 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import java.util.Locale
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.privacysandbox.tools.core.model.Method
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
@@ -29,24 +23,18 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.models.SlideModel
-import com.example.mobiflix.Activities.DetailActivity
 import com.example.mobiflix.Adapters.CategoryListAdapter
 import com.example.mobiflix.Adapters.FilmListAdapter
 import com.example.mobiflix.Domains.GenresItem
 import com.example.mobiflix.Domains.ListFilm
-import com.example.mobiflix.animations.AnimationTypes
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.util.Objects
-import java.util.logging.Handler
-
-
 
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var searchBar: EditText
     private lateinit var imgExplorer: LinearLayout
     private lateinit var recyclerViewBestMovies: RecyclerView
     private lateinit var recyclerViewUpcomingMovies: RecyclerView
@@ -69,10 +57,12 @@ class MainActivity : AppCompatActivity() {
 
 
     private lateinit var etSearchBar: EditText
+    private lateinit var searchBarText: String
     private lateinit var btnMick: ImageView
 
     // on below line we are creating a constant value
     private val REQUEST_CODE_SPEECH_INPUT = 1
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,14 +72,11 @@ class MainActivity : AppCompatActivity() {
         initUI()
         imageSlider()
         voiceSearch()
+        bottomNavBar()
 
         sendRequestBestMovies()
         sendRequestUpcomingMovies()
         sendRequestCategory()
-
-        imgExplorer.setOnClickListener {
-            startActivity(Intent(this, DetailActivity::class.java))
-        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -102,12 +89,6 @@ class MainActivity : AppCompatActivity() {
 
         val imgSlider = findViewById<ImageSlider>(R.id.image_slider)
         etSearchBar = findViewById<EditText>(R.id.searchBar)
-
-        imgExplorer = findViewById(R.id.ImgExplorer)
-
-        imgExplorer.setOnClickListener {
-            startActivity(Intent(this, DetailActivity::class.java))
-        }
 
         recyclerViewBestMovies = findViewById<RecyclerView>(R.id.view1).apply {
             layoutManager =
@@ -125,6 +106,7 @@ class MainActivity : AppCompatActivity() {
         loading1 = findViewById(R.id.progressBar1)
         loading2 = findViewById(R.id.progressBar2)
         loading3 = findViewById(R.id.progressBar3)
+
     }
 
 
@@ -148,6 +130,20 @@ class MainActivity : AppCompatActivity() {
         imageSlider.setImageList(imageList)
         imageSlider.setSlideAnimation(com.denzcoskun.imageslider.constants.AnimationTypes.DEPTH_SLIDE)
     }
+
+    private fun bottomNavBar(){
+        val btnExplorer = findViewById<ImageView>(R.id.imgExplo)
+        val btnFav = findViewById<ImageView>(R.id.imgFav)
+        val btnHome = findViewById<ImageView>(R.id.imgHome)
+        val btnFProfile = findViewById<ImageView>(R.id.imgProfile)
+
+        btnExplorer.setOnClickListener {
+            startActivity(Intent(this,WebView::class.java))
+            finish()
+        }
+
+    }
+
 
     private fun voiceSearch() {
         btnMick = findViewById(R.id.btnMick)
@@ -263,6 +259,5 @@ class MainActivity : AppCompatActivity() {
         })
         requestQueue.add(stringRequest)
     }
-
-
+    
 }
