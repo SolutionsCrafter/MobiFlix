@@ -235,6 +235,7 @@
                         android:layout_height="24dp"
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
+                        android:tag="btnHomeGroup"
                         android:src="@drawable/home"
                         app:tint="@color/yellow" />
 
@@ -243,6 +244,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/home"
                         android:textAlignment="center"
+
                         android:textColor="@color/yellow" />
 
                 </LinearLayout>
@@ -266,9 +268,11 @@
                         app:tint="@color/white" />
 
                     <TextView
+                        android:id="@+id/tvExplorer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/explorer"
+                        android:clickable="true"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
 
