@@ -8,17 +8,21 @@
 
     tools:context=".WebView">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl"
-        android:layout_width="match_parent"
-        android:layout_height="865dp"
-        android:background="@drawable/webbg"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <WebView
+            android:id="@+id/wv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"
@@ -60,8 +64,10 @@
                         app:tint="@color/white" />
 
                     <TextView
+                        android:id="@+id/tvHome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:clickable="true"
                         android:text="@string/home"
                         android:textAlignment="center"
                         android:textColor="@color/white" />

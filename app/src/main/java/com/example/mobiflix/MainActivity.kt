@@ -1,14 +1,17 @@
 package com.example.mobiflix
 
 import android.content.Intent
+import android.nfc.Tag
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -133,17 +136,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun bottomNavBar(){
         val btnExplorer = findViewById<ImageView>(R.id.imgExplo)
+        val tvExplorer = findViewById<TextView>(R.id.tvExplorer)
         val btnFav = findViewById<ImageView>(R.id.imgFav)
-        val btnHome = findViewById<ImageView>(R.id.imgHome)
         val btnFProfile = findViewById<ImageView>(R.id.imgProfile)
+
 
         btnExplorer.setOnClickListener {
             startActivity(Intent(this,WebView::class.java))
             finish()
         }
-
+        tvExplorer.setOnClickListener {
+            startActivity(Intent(this,WebView::class.java))
+            finish()
+        }
     }
-
 
     private fun voiceSearch() {
         btnMick = findViewById(R.id.btnMick)
